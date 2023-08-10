@@ -96,9 +96,7 @@ while True:
     # Print inventory 
     def return_inventory():
         print(resources)
-        print(coffe_profit(userchoice, money_earned))
-
-    print(userchoice)    
+        print(coffe_profit(userchoice, money_earned)) 
 
     # Check if there are enough resources for the chosen coffee type
     if userchoice in coffee_menu:
@@ -109,6 +107,5 @@ while True:
             print(f"Enjoy your {userchoice}!")
         else:
             print(f"Sorry, not enough resources to make {userchoice}.")
-
     return_inventory()     
 
