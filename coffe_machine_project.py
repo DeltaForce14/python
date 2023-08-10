@@ -69,7 +69,7 @@ while True:
         for ingredient, quantity in coffe_resources.items():
             if quantity <= 0:
                 return False  
-            return True      
+        return True      
 
 
     def deduct_resources(coffee_type):
@@ -80,6 +80,7 @@ while True:
                     amount = int(quantity[:-1]) # Get the numerical value of the quantity
                 else:
                     amount = int(quantity[:-2])   # Get the numerical value of the quantity 
+                print(f"Deducting {amount} units of {ingredient}")    
                 resources[ingredient.lower()] -= amount
 
     # Calculate profit from coffee             
@@ -91,12 +92,13 @@ while True:
                 if ingredient == 'Price':
                     # get everything from Price value except first character and turn to float 
                     money += float(quantity[1:])
-            return money
+                return money
 
     # Print inventory 
     def return_inventory():
         print(resources)
-        print(coffe_profit(userchoice, money_earned)) 
+        print(f"You have earned ${coffe_profit(userchoice, money_earned)}")
+    
 
     # Check if there are enough resources for the chosen coffee type
     if userchoice in coffee_menu:
@@ -107,5 +109,7 @@ while True:
             print(f"Enjoy your {userchoice}!")
         else:
             print(f"Sorry, not enough resources to make {userchoice}.")
-    return_inventory()     
+
+    if userchoice == 'inventory':
+            return_inventory()     
 
